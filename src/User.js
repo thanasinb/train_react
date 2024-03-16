@@ -6,7 +6,12 @@ const User = () =>{
     return(
         <div>
             Valid
-            <button onClick={()=>setValid(false)}>log out
+            <button onClick={ async ()=>{
+                await fetch("http://localhost:3001/api/logout", {
+                    credentials: "include"
+                })
+                setValid(false)
+            }}>log out
             </button>
         </div>
     )

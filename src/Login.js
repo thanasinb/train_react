@@ -23,7 +23,7 @@ function App() {
       console.log(password)
       const result = await fetch("http://localhost:3001/api/login", {
         method: "POST",
-        header:{
+        headers:{
           'content-type': 'application/json'
         },
         body : JSON.stringify({
@@ -37,7 +37,10 @@ function App() {
           (json) => json
         ))
         if (result.result==="pass"){
+          // console.log(result.result)
           setValid(true)
+        }else {
+          alert(result.result)
         }
     }
   }
